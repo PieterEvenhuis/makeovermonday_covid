@@ -1,0 +1,69 @@
+---
+title: "Makeover monday"
+output: 
+  flexdashboard::flex_dashboard:
+    vertical_layout: fill
+---
+
+<style>
+
+.navbar {
+background-color:#232323;
+border-color:grey;
+}
+.navbar-brand {
+color:white!important;
+}
+</style>    
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(sf)
+library(leaflet)
+
+
+points <- st_read("~/Persoonlijke_projecten/Covid_dataviz_wedstrijd/points_20201129_output.gpkg", "points_20201129_output.gpkg", crs = 28992) %>% st_transform(4326)
+
+gemeenten <- st_read("~/Persoonlijke_projecten/Covid_dataviz_wedstrijd/points_20201129_output.gpkg",
+                     "gemeenten_sterfgevallen", crs = 28992) %>% st_transform(4326)
+
+gemeenten_simple <- st_simplify(gemeenten, preserveTopology = T)
+
+```
+
+
+## R Markdown { .colored}
+
+Inleidende tekst
+
+```{r leaflet, echo = F, fig.width=14, fig.height=9}
+
+m <- leaflet() %>%
+  addProviderTiles(providers$CartoDB.DarkMatter,
+                   options = providerTileOptions(minZoom = 7, maxZoom = 11)) %>%
+  addCircleMarkers(data = points,
+                   radius = 1,
+                   color = "#fffcbb",
+                   fillOpacity = 0.5,
+                   stroke = F) %>%
+  addPolygons(data = gemeenten_simple,
+              color = "#232323",
+              weight = 0.5,
+              smoothFactor = 0.5,
+              opacity = 0.8, 
+              fillOpacity = 0,
+              highlightOptions = highlightOptions(color = "white", 
+                                                  weight = 0.5,
+                                                  opacity = 1, 
+                                                  bringToFront = TRUE),
+              popup = paste("<b>Gemeente: </b>", gemeenten_simple$gemeentenaam, "<br>",
+                            "<b>Aantal sterfgevallen: </b>", gemeenten_simple$n_overleden),
+              popupOptions = popupOptions(closeOnClick = TRUE))
+
+
+m
+
+
+```
