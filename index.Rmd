@@ -36,8 +36,7 @@ gemeenten_simple <- st_simplify(gemeenten, preserveTopology = T)
 
 ## Content
 
-<b> Inleiding viewer </b>
-
+<b> Inleiding viewer</b><br>
 In onderstaande viewer zijn alle door GGD's bevestigde COVID-19 sterfgevallen in beeld gebracht. Online zijn alleen genormaliseerde (x aantal sterfgevallen per 100.000) op kaart te vinden, wat overigens ook logischer en verantwoorder is. Ik was alleen benieuwd of een plot van alle sterfgevallen als een stip op de kaart ook zou leiden tot 'nieuwe' inzichten, of dat in ieder geval het beeld dat ik had over welke regio's in absolute zin het hardst getroffen zijn ook klopte. In dat geval zou ik verwachten dat er in Zuid-Nederland aanmerkelijk meer stippen te zien zouden zijn dan in Noord-Nederland. Op onderstaande viewer is het eindresultaat te vinden.
 
 <b> Methode </b><br>
@@ -92,4 +91,7 @@ Omdat de punten willekeurig geplaatst zijn op basis van waar mensen wonen (en du
 Oorspronkelijk was mijn idee om deze punten door de tijd heen op de kaart te kunnen plotten, waarbij je het virus dus vanaf begin maart ziet verplaatsen door Nederland. Hier had ik helaas geen tijd meer voor. Ook had ik idealiter nog het aantal inwoners per gemeente willen vermelden bij de pop-up. Bij een volgende update zal ik er in ieder geval ook voor zorgen dat de gemeente Hengelo goed gekoppeld wordt..
 <br><br>
 Al met al leuk om zo eens op een minder 'verantwoorde' manier met data te kunnen prutsen en te kijken wat er technisch mogelijk is en wat dat oplevert. Ik heb er met plezier aan gewerkt en ook een aantal dingen opgestoken die ik in mijn werk weer kan gebruiken. Dank!
-
+<br>
+<br>
+<b>Script</b><br>
+Het R-script dat ik gemaakt heb om de data te verwerken kun je vinden in de github repository van dit project, te vinden op https://github.com/PieterEvenhuis/makeovermonday_covid
