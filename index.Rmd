@@ -90,7 +90,7 @@ Omdat de punten willekeurig geplaatst zijn op basis van waar mensen wonen (en du
 <br><br>
 Oorspronkelijk was mijn idee om deze punten door de tijd heen op de kaart te kunnen plotten, waarbij je het virus dus vanaf begin maart ziet verplaatsen door Nederland. Hier had ik helaas geen tijd meer voor. Ook had ik idealiter nog het aantal inwoners per gemeente willen vermelden bij de pop-up. Bij een volgende update zal ik er in ieder geval ook voor zorgen dat de gemeente Hengelo goed gekoppeld wordt..
 <br><br>
-Al met al leuk om zo eens op een minder 'verantwoorde' manier met data te kunnen prutsen en te kijken wat er technisch mogelijk is en wat dat oplevert. Ik heb er met plezier aan gewerkt en ook een aantal dingen opgestoken die ik in mijn werk weer kan gebruiken. Dank!
+Al met al interessant om zo eens op een minder 'verantwoorde' manier met data te kunnen experimenteren en te kijken wat er technisch mogelijk is en wat dat oplevert. Ik heb er met plezier aan gewerkt en ook een aantal dingen opgestoken die ik in mijn werk weer kan gebruiken. Dank!
 <br>
 <br>
 <b>Script</b><br>
