@@ -1,8 +1,8 @@
 ---
-title: "Makeover monday"
+title: "Makeover monday wedstrijd"
 output: 
   flexdashboard::flex_dashboard:
-    vertical_layout: fill
+    vertical_layout: scroll
 ---
 
 <style>
@@ -34,11 +34,20 @@ gemeenten_simple <- st_simplify(gemeenten, preserveTopology = T)
 ```
 
 
-## R Markdown { .colored}
+## Content
 
-Inleidende tekst
+<b> Inleiding viewer </b>
 
-```{r leaflet, echo = F, fig.width=14, fig.height=9}
+In onderstaande viewer zijn alle door GGD's bevestigde COVID-19 sterfgevallen in beeld gebracht. Online zijn alleen genormaliseerde (x aantal sterfgevallen per 100.000) op kaart te vinden, wat overigens ook logischer en verantwoorder is. Ik was alleen benieuwd of een plot van alle sterfgevallen als een stip op de kaart ook zou leiden tot 'nieuwe' inzichten, of dat in ieder geval het beeld dat ik had over welke regio's in absolute zin het hardst getroffen zijn ook klopte. In dat geval zou ik verwachten dat er in Zuid-Nederland aanmerkelijk meer stippen te zien zouden zijn dan in Noord-Nederland. Op onderstaande viewer is het eindresultaat te vinden.
+
+<b> Methode </b><br>
+Voor deze viewer wou ik dus alle bevestigde sterfgevallen op de kaart kunnen representeren als een stip, om zo mogelijk wat meer gevoel te krijgen bij de regio's die het hardst getroffen zijn door COVID-19. Om dit te bereiken heb ik de de open data van het RIVM met het aantal cumulatieve sterfgevallen per gemeente gecombineerd met de vierkantstatistieken van het CBS. We weten per gemeente hoeveel inwoners aan het virus zijn overleden, maar we weten niet waar deze mensen woonden.
+Per gemeente moesten dus op willekeurige plekken punten worden geplaatst voor elk sterfgeval. Omdat ik wel een enigszins realistisch beeld wilde, heb ik gekozen om de CBS vierkantstatistieken te gebruiken om de punten te kunnen plaatsen op de locaties binnen gemeenten waar ook daadwerkelijk mensen wonen. Hoe meer inwoners in een CBS vierkant (500 x 500 m), hoe groter de kans dat er een sterfgeval is geplot. Op deze manier heb ik geprobeerd een indicatief beeld te geven van welke regio's harder getroffen zijn dan andere regio's. <br>
+
+In de viewer kun je op een gemeente klikken om de gemeentenaam en het aantal sterfgevallen af te lezen.
+
+
+```{r leaflet, echo = F, fig.width=10, fig.height=10}
 
 m <- leaflet() %>%
   addProviderTiles(providers$CartoDB.DarkMatter,
@@ -67,3 +76,20 @@ m
 
 
 ```
+
+<br>
+<b>Bronnen</b><br>
+CBS: vierkantstatistieken 500x500 (2019) <br>
+RIVM: COVID-19 aantallen gemeente cumulatief (d.d. 30-11-2020) <br>
+PDOK/BRK: bestuurlijke grenzen (2020)<br>
+
+<br>
+<b>Opmerkingen en reflectie</b><br>
+Het was even afwachten of ik met de door mij gehanteerde methode niet gewoon een bevolkingsdichtheid kaart aan het reproduceren was. Ik heb mijn output ook over een bevolkingsdichtheidkaart gelegd en ik zie inderdaad en logischerwijs heel veel overeenkomsten. Wel is goed te zien dat in de noordelijke provincies wel veel minder sterfgevallen geplot zijn. Als je de rurale gemeenten in het noorden vergelijkt met de rurale gemeenten in het zuiden valt daar wel een groot verschil te zien. Het geeft in die zin wel een beeld van waar in Nederland het virus harder heeft toegeslagen.
+<br><br>
+Omdat de punten willekeurig geplaatst zijn op basis van waar mensen wonen (en dus absoluut geen nauwkeurigheid impliceren) heb ik het maximale zoomlevel van de viewer beperkt, zodat die schijn van nauwkeurigheid ook zo weinig mogelijk gewekt wordt.
+<br><br>
+Oorspronkelijk was mijn idee om deze punten door de tijd heen op de kaart te kunnen plotten, waarbij je het virus dus vanaf begin maart ziet verplaatsen door Nederland. Hier had ik helaas geen tijd meer voor. Ook had ik idealiter nog het aantal inwoners per gemeente willen vermelden bij de pop-up. Bij een volgende update zal ik er in ieder geval ook voor zorgen dat de gemeente Hengelo goed gekoppeld wordt..
+<br><br>
+Al met al leuk om zo eens op een minder 'verantwoorde' manier met data te kunnen prutsen en te kijken wat er technisch mogelijk is en wat dat oplevert. Ik heb er met plezier aan gewerkt en ook een aantal dingen opgestoken die ik in mijn werk weer kan gebruiken. Dank!
+
